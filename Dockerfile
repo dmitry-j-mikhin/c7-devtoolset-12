@@ -4,7 +4,7 @@ ARG USER_ID
 ARG GROUP_ID
 
 ADD scripts /build
-RUN bash /build/build.sh
+RUN /build/build.sh
 
 # Environment Configuration
 ENV CC=/opt/rh/devtoolset-12/root/usr/bin/gcc \
@@ -18,4 +18,4 @@ ENV CC=/opt/rh/devtoolset-12/root/usr/bin/gcc \
     X_SCLS=devtoolset-12 \
     PCP_DIR=/opt/rh/devtoolset-12/root
 
-USER root
+USER cicd
