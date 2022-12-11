@@ -11,12 +11,21 @@ gpgcheck=0
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7' | tee -a /etc/yum.repos.d/devtoolset-12.repo
 
-yum install -y devtoolset-12 sudo
+yum install -y centos-release-scl epel-release #additional repos
+
+yum install -y devtoolset-12 sudo cmake \
+ tcl `#sqlite` \
+ CUnit-devel libuuid-devel `#libwacl` \
+ re2c `#libdetection` \
+ texinfo `#libconfig`
 yum group install -y "Development Tools"
 
 groupadd -g ${GROUP_ID} cicd
 useradd -m -l -u ${USER_ID} -G wheel -g cicd cicd
 echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/wheel_group
 echo 'Defaults:%wheel !requiretty' >> /etc/sudoers.d/wheel_group
+
+mv -v /usr/bin/install /usr/bin/install-real
+cp -v /build/install /usr/bin/install
 
 yum -y clean all && rm -rf /var/cache
