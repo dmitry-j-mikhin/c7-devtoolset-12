@@ -17,7 +17,8 @@ yum install -y devtoolset-12 sudo \
  tcl `#sqlite` \
  CUnit-devel libuuid-devel `#libwacl` \
  re2c `#libdetection` \
- texinfo `#libconfig`
+ texinfo `#libconfig` \
+ valgrind-devel `#gperftools`
 yum group install -y "Development Tools"
 
 CMAKE_VERSION=3.25.1
