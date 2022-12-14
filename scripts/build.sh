@@ -12,13 +12,15 @@ repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7' | tee -a /etc/yum.repos.d/devtoolset-12.repo
 
 yum install -y centos-release-scl epel-release #additional repos
+yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
 
-yum install -y devtoolset-12 sudo \
+yum install -y devtoolset-12 sudo git \
  tcl `#sqlite` \
  CUnit-devel libuuid-devel `#libwacl` \
  re2c `#libdetection` \
  texinfo `#libconfig` \
- valgrind-devel `#gperftools`
+ valgrind-devel `#gperftools` \
+ openssl-devel `#libproton`
 yum group install -y "Development Tools"
 
 CMAKE_VERSION=3.25.1
