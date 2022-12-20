@@ -28,8 +28,8 @@ curl -L https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cma
 sh cmake-${CMAKE_VERSION}-Linux-x86_64.sh --prefix=/usr/local/ --exclude-subdir --skip-license && \
 rm cmake-${CMAKE_VERSION}-Linux-x86_64.sh
 
-groupadd -g ${GROUP_ID} cicd
-useradd -m -l -u ${USER_ID} -G wheel -g cicd cicd
+#groupadd -g ${GROUP_ID} cicd
+#useradd -m -l -u ${USER_ID} -G wheel -g cicd cicd
 echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/wheel_group
 echo 'Defaults:%wheel !requiretty' >> /etc/sudoers.d/wheel_group
 
