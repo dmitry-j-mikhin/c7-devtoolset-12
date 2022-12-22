@@ -20,7 +20,8 @@ yum install -y devtoolset-12 sudo git \
  re2c `#libdetection` \
  texinfo `#libconfig` \
  valgrind-devel `#gperftools` \
- openssl-devel `#libproton`
+ openssl-devel `#libproton` \
+# libxslt-devel gd-devel perl-ExtUtils-Embed `#nginx`
 yum group install -y "Development Tools"
 
 CMAKE_VERSION=3.25.1
