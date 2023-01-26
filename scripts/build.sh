@@ -21,7 +21,7 @@ yum install -y devtoolset-12 sudo git \
  texinfo `#libconfig` \
  valgrind-devel `#gperftools` \
  openssl-devel `#libproton` \
-# libxslt-devel gd-devel perl-ExtUtils-Embed `#nginx`
+ openssl-static `#libproton proper linking into module`
 yum group install -y "Development Tools"
 
 CMAKE_VERSION=3.25.1
