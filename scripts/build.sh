@@ -5,16 +5,16 @@ set -ex
 echo '
 [devtoolset-12]
 name=Devtoolset 12
-baseurl=https://buildlogs.centos.org/c7-devtoolset-12.x86_64/
+baseurl=https://buildlogs.centos.org/c7-devtoolset-12.aarch64/
 enabled=1
 gpgcheck=0
 repo_gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7' | tee -a /etc/yum.repos.d/devtoolset-12.repo
 
 yum install -y centos-release-scl epel-release #additional repos
-yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
+#yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
 
-yum install -y devtoolset-12 sudo git \
+yum install -y devtoolset-12 sudo /build/*.rpm \
  tcl `#sqlite` \
  CUnit-devel libuuid-devel `#libwacl` \
  re2c `#libdetection` \
@@ -24,10 +24,10 @@ yum install -y devtoolset-12 sudo git \
  openssl-static `#libproton proper linking into module`
 yum group install -y "Development Tools"
 
-CMAKE_VERSION=3.25.1
-curl -L https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh > cmake-${CMAKE_VERSION}-Linux-x86_64.sh && \
-sh cmake-${CMAKE_VERSION}-Linux-x86_64.sh --prefix=/usr/local/ --exclude-subdir --skip-license && \
-rm cmake-${CMAKE_VERSION}-Linux-x86_64.sh
+CMAKE_VERSION=3.25.2
+curl -L https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-aarch64.sh > cmake-${CMAKE_VERSION}-Linux-aarch64.sh && \
+sh cmake-${CMAKE_VERSION}-Linux-aarch64.sh --prefix=/usr/local/ --exclude-subdir --skip-license && \
+rm cmake-${CMAKE_VERSION}-Linux-aarch64.sh
 
 #groupadd -g ${GROUP_ID} cicd
 #useradd -m -l -u ${USER_ID} -G wheel -g cicd cicd
