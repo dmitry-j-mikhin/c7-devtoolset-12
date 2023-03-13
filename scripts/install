@@ -1,4 +1,4 @@
 #!/bin/bash
 
 set -x
-exec /usr/bin/install-real -p "$@"
+exec /tmp/install -p "$@"
