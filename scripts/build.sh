@@ -24,7 +24,7 @@ yum install -y devtoolset-12 sudo git \
  openssl-static `#libproton proper linking into module`
 yum group install -y "Development Tools"
 
-CMAKE_VERSION=3.25.1
+CMAKE_VERSION=3.26.3
 curl -L https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh > cmake-${CMAKE_VERSION}-Linux-x86_64.sh && \
 sh cmake-${CMAKE_VERSION}-Linux-x86_64.sh --prefix=/usr/local/ --exclude-subdir --skip-license && \
 rm cmake-${CMAKE_VERSION}-Linux-x86_64.sh
