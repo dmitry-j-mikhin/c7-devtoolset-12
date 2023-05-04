@@ -1,7 +1,9 @@
+# syntax=docker/dockerfile:experimental
 FROM centos:centos7
 
-ADD scripts /build
-RUN /build/build.sh
+# ADD scripts /build
+RUN --mount=type=bind,target=/build,source=scripts,ro \
+    /build/build.sh
 
 # Environment Configuration
 ENV CC=/opt/rh/devtoolset-12/root/usr/bin/gcc \
@@ -15,4 +17,4 @@ ENV CC=/opt/rh/devtoolset-12/root/usr/bin/gcc \
     X_SCLS=devtoolset-12 \
     PCP_DIR=/opt/rh/devtoolset-12/root
 
-ENTRYPOINT ["/build/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
