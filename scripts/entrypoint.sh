@@ -41,4 +41,4 @@ fi
 echo "INFO: Running app as ${MY_USERNAME}:${MY_GROUP} (${MY_UID}:${MY_GID})"
 
 # exec and run the actual process specified in the CMD of the Dockerfile (which gets passed as ${*})
-exec chroot --userspec=${MY_USERNAME}:${MY_GROUP} / "${@}"
+exec chroot --userspec=${MY_USERNAME}:${MY_GROUP} --groups=wheel / "${@}"

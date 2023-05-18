@@ -24,7 +24,7 @@ yum install -y devtoolset-12 sudo /build/*.rpm \
  openssl-static `#libproton proper linking into module`
 yum group install -y "Development Tools"
 
-CMAKE_VERSION=3.25.2
+CMAKE_VERSION=3.26.3
 curl -L https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-aarch64.sh > cmake-${CMAKE_VERSION}-Linux-aarch64.sh && \
 sh cmake-${CMAKE_VERSION}-Linux-aarch64.sh --prefix=/usr/local/ --exclude-subdir --skip-license && \
 rm cmake-${CMAKE_VERSION}-Linux-aarch64.sh
@@ -36,5 +36,6 @@ echo 'Defaults:%wheel !requiretty' >> /etc/sudoers.d/wheel_group
 
 mv -v /usr/bin/install /usr/bin/install-real
 cp -v /build/install /usr/bin/install
+cp -v /build/entrypoint.sh /usr/local/bin/entrypoint.sh
 
 yum -y clean all && rm -rf /var/cache
