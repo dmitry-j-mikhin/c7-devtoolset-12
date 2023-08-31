@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:experimental
-FROM alpine:3.14
+FROM alpine:3.18.3
 
 # ADD scripts /build
 RUN --mount=type=bind,target=/build,source=scripts,ro \
