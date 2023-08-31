@@ -21,3 +21,4 @@ echo 'Defaults:%wheel !requiretty' >> /etc/sudoers.d/wheel_group
 rm /usr/bin/install
 ln -f -s /usr/bin/coreutils /tmp/install
 cp -v /build/install /usr/bin/install
+cp -v /build/entrypoint.sh /usr/local/bin/entrypoint.sh
