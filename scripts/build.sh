@@ -4,7 +4,7 @@ set -ex
 
 apk add --no-cache shadow coreutils bash sudo openssh-client \
  autoconf automake libtool musl-dev make linux-headers \
- gcc cmake git \
+ gcc cmake git patch \
  tcl `#sqlite` \
  cunit-dev util-linux-dev `#libwacl` \
  re2c bison bsd-compat-headers `#libdetection` \
