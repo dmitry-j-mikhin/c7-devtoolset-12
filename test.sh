@@ -13,4 +13,4 @@ docker run -i $TTY --rm \
  -e CI_JOB_TOKEN=$CI_JOB_TOKEN \
  -v $(readlink -f $SSH_AUTH_SOCK):/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
  -v $(realpath .):/test \
- dmikhin/c7-devtoolset-12 "$@"
+ dmikhin/c7-devtoolset-12:latest "$@"

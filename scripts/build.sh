@@ -19,9 +19,7 @@ yum install -y devtoolset-12 sudo git \
  CUnit-devel libuuid-devel `#libwacl` \
  re2c `#libdetection` \
  texinfo `#libconfig` \
- valgrind-devel `#gperftools` \
- openssl-devel `#libproton` \
- openssl-static `#libproton proper linking into module`
+ valgrind-devel `#gperftools`
 yum group install -y "Development Tools"
 
 CMAKE_VERSION=3.26.3
